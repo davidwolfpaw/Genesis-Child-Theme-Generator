@@ -3,9 +3,9 @@
  *
  * This file should contain any JavaScript you want to add to the site.
  *
- * Theme Name: OBM-Genesis-Child
+ * Child Theme Name: OBM-Genesis-Child
  * Author: Orange Blossom Media
- * URI: https://orangeblossommedia.com/
+ * Url: https://orangeblossommedia.com/
  */
 
 // as the page loads, call these scripts
@@ -59,23 +59,32 @@ jQuery(document).ready(function($) {
         (function( $ ) {
             "use strict";
             $(function() {
+            // Slide-Out Menu
 
-                /* prepend menu icon */
-                $('header .genesis-nav-menu, .nav-primary .genesis-nav-menu').addClass('responsive-menu').before('<div class="responsive-menu-icon-sidr"><span class="fa fa-bars"></span>menu</div>');
+                // hide full-sized menu
+                $('.nav-header').hide();
 
-                $('.responsive-menu-icon-sidr').sidr({
-                    source: '.nav-primary',
-                    side: 'left',
+                // prepend menu icon for header-right menu
+                $('.header-widget-area .widget-wrap').prepend('<div id="mobile-header"><a title="Navigation Menu" class="responsive-menu-button far fa-bars" href="#sidr"></a></div>');
+
+                $('#mobile-header').sidr({
+                    name: 'sidr',
+                    source: '.nav-header',
+                    side: 'right',
                     speed: 200,
                     displace: true,
                     bind: 'touchstart click',
                     onOpen: function () {
-                        $('.responsive-menu-icon-sidr span').addClass('fa-close');
-                        $('.responsive-menu-icon-sidr span').removeClass('fa-bars');
+                        $('#mobile-header')
+                            .find('[data-fa-processed]')
+                            .toggleClass('fa-bars')
+                            .toggleClass('fa-times-circle');
                     },
                     onClose: function () {
-                        $('.responsive-menu-icon-sidr span').addClass('fa-bars');
-                        $('.responsive-menu-icon-sidr span').removeClass('fa-close');
+                        $('#mobile-header')
+                            .find('[data-fa-processed]')
+                            .toggleClass('fa-bars')
+                            .toggleClass('fa-times-circle');
                     },
                 });
 
@@ -90,7 +99,6 @@ jQuery(document).ready(function($) {
                 $('#sidr-overlay').click(function () {
                     $.sidr('close', 'sidr');
                 });
-
 
             });
 

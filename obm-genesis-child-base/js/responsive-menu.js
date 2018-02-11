@@ -1,9 +1,9 @@
 /*
  * Responsive Menu Script
  *
- * Theme Name: OBM-Genesis-Child
+ * Child Theme Name: OBM-Genesis-Child
  * Author: Orange Blossom Media
- * URI: https://orangeblossommedia.com/
+ * Url: https://orangeblossommedia.com/
  */
 
 (function( $ ) {
